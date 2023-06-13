@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="height:90%" class ="row m-3">
+    <div style="overflow-y: scroll; height:100%" class="col-4 card">
+        <form method="post" class="m-3">
+        {% csrf_token %}
+        <h5>Malumotlarni to'ldiring</h5>
+        <div class="mb-3">
+            <label for="id_soni" class="form-label">Shartnoma soni :</label>
+            <input type="number" name="soni" placeholder="--" class="textinput form-control" required="" id="id_soni">
+        </div>
+        <div class="mb-3">
+            <label for="id_sana" class="form-label">sana :</label>
+            <input type="date" name="sana" class="textinput form-control" required="" id="id_sana">
+        </div>
+        <div class="mb-3">
+            <label for="id_rektor" class="form-label">Ish beruvchi :</label>
+            <input type="text" name="rektor" placeholder="F.I.O" class="textinput form-control" required="" id="id_rektor">
+        </div>
+        <div class="mb-3">
+            <label for="id_xodim" class="form-label">Xodim :</label>
+            <input type="text" name="xodim" placeholder="F.I.O" class="textinput form-control" required="" id="id_xodim">
+        </div>
+        <div class="mb-3">
+            <label for="id_korxona" class="form-label">Korxona tarkibiy bo‘linmasi :</label>
+            <input type="text" name="korxona" placeholder="xodimlar boʻlimi" class="textinput form-control" required="" id="id_korxona">
+        </div>
+        <div class="mb-3">
+            <label for="id_lavozim" class="form-label">Lavozimining to‘liq nomi :</label>
+            <input type="text" name="lavozim" placeholder="boʻlim boshligʻi" class="textinput form-control" required="" id="id_lavozim">
+        </div>
+        <div class="mb-3">
+            <label for="id_asosiy" class="form-label">asosiy ish, o‘rindoshlik, mavsumiy va boshqa :</label>
+            <input type="text" name="asosiy" placeholder="asosiy" class="textinput form-control" required="" id="id_asosiy">
+        </div>
+        <div class="mb-3">
+            <label for="id_muayan" class="form-label">Muddatli mehnat shartnomasi :</label>
+            <input type="text" name="muayan" placeholder="nomuayyan" class="textinput form-control" required="" id="id_muayan">
+        </div>
+        <div class="mb-3">
+            <label for="id_boshlash" class="form-label">Ish boshlash sanasi :</label>
+            <input type="text" name="boshlash" placeholder="01.01.2023 yil" class="textinput form-control" required="" id="id_boshlash">
+        </div>
+        <div class="mb-3">
+            <label for="id_tomom" class="form-label">Tomom bo'lishi</label>
+            <input type="text" name="tomom" placeholder="01.01.2023 yil" class="textinput form-control" required="" id="id_tomom">
+        </div>
+        <div class="mb-3">
+            <label for="id_sinov" class="form-label">Sinov muddati :</label>
+            <input type="text" name="sinov" placeholder="3 oy" class="textinput form-control" required="" id="id_sinov">
+        </div>
+        <div class="mb-3">
+            <label for="id_ish" class="form-label">Ish vaqtining davomiyligi :</label>
+            <textarea name="ish" placeholder="Dushanba-Juma kunlari soat 08:30dan 16:30 gacha" class="textinput form-control" required="" id="id_ish"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="id_kun" class="form-label">Haftaga necha kun :</label>
+                <input type="number" name="kun" placeholder="--" class="textinput form-control" required="" id="id_kun">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="id_soat" class="form-label">Haftasiga necha soatgacha :</label>
+                <input type="number" name="soat" placeholder="--" class="textinput form-control" required="" id="id_soat">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id_razryad" class="form-label">Oylik :</label>
+            <input type="number" name="razryad" placeholder="--" class="textinput form-control" required="" id="id_razryad">
+        </div>
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="id_kalemdar1" class="form-label">Jamoa shartnomasi boʻyicha qo‘shimcha ta’til :</label>
+                <input type="number" name="kalemdar1" placeholder="--" class="textinput form-control" required="" id="id_kalemdar1">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="id_kalemdar2" class="form-label">Besh yili uchun qoʻshimcha davomiyligi :</label>
+                <input type="number" name="kalemdar2" placeholder="--" class="textinput form-control" required="" id="id_kalemdar2">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary form-control" tabindex="4"> ok </button>
+        </div>
+    </form>
+    </div>
+    <div class="col-8 card" style="overflow-y: scroll; height:100%">
+        <div class="m-5" data-bs-spy="scroll" data-bs-target="#navbar-example">
+            <h5 class="text-center"><span id="id_soni_id">1</span>- SON MEHNAT ShARTNOMASI  </h5><br>
+            <div class="row">
+              <p class="col-6 text-center" id="id_sana_id">4  “may ” 2023</p>
+              <p class="col-6 text-center"><b>Buxoro shahri</b></p>
+            </div>
+            <p>
+                1. Korxona (mulkchilikning barcha shakllaridagi tashkilot, muassasa, shu jumladan, ularning alohida tarkibiy bo‘linmalari Buxoro davlat pedagogika instituti rektori (direktori)
+                <span><b id="id_rektor_id">Daminov Mirzohid Islomovich</b></span>
+                nomidan, keyingi o‘rinlarda «Ish beruvchi» deb ataladi va fuqaro
+                <span><b id="id_xodim_id">Aminov Murod Xalim oʻgʻli</b></span>
+                keyingi o‘rinlarda «Xodim» deb ataladi, mazkur shartnomani quyidagilar haqida tuzdik:
+            </p>
+            <div class="row">
+              <p class="col-5">2. Xodim</p>
+              <p class="col-7"><b id="id_xodim_idd">Aminov Murod Xalim oʻgʻli</b></p>
+            </div>
+             <p class="text-center" style="font-size: x-small;"> (familiyasi, ismi va otasining ismi) </p>
+            <p class="text-center"><b id="id_korxona_id">Xodimlar boʻlimi</b></p>
+            <p class="text-center" style="font-size: x-small;">(korxona tarkibiy bo‘linmasi, sex, bo‘lim, uchastka, laboratoriya va shu kabilarning nomi)</p>
+            <p> kasbi bo‘yicha <b id="id_lavozim_id">boʻlim boshligʻi</b> lavozimiga ishga qabul qilinadi. </p>
+            <p class="text-center" style="font-size: x-small;"> (ХALIKK bo‘yicha kasb, lavozimining to‘liq nomi, razryad, malaka toifasi) </p>
+            <p>3. Shartnoma <b id="id_asosiy_id">asosiy</b> hisoblanadi.</p>
+            <p class="text-center" style="font-size: x-small;"> (asosiy ish, o‘rindoshlik, mavsumiy va boshqa) </p>
+            <p>4. Shartnoma muddati <b id="id_muayan_id">bir oʻquv yili davomida tanlovdan oʻtgunga qadar </b></p>
+            <p class="text-center" style="font-size: x-small;"> (nomuayyan muddatga,uch yildan ko‘p bo‘lmagan muayyan muddatga (muddatli mehnat shartnomasi) </p>
+            <p>5. Shartnoma bo‘yicha ishlash</p>
+            <p> – boshlanishi <b id="id_boshlash_id">05.05.2023 yil</b></p>
+            <p>– тamom bo‘lishi <b id="id_tomom_id">05.05.2023 yil</b></p>
+            <p>6. Sinov muddati <b id="id_sinov_id">3 oy</b></p>
+            <p class="text-center" style="font-size: x-small;">(sinovsiz, sinov muddati)</p>
+            <p><b>7. Xodimning majburiyatlari:</b></p>
+            <p>a) O‘zbekiston Respublikasi Konstitutsiyasi, mehnat to‘g‘risidagi qonunchilik hamda boshqa qonunlar va qonunchilik hujjatlariga rioya qilish;<br>
+b) Lavozim yo‘riqnomasida belgilangan o‘z xizmat majburiyatlarini vijdonan bajarishi,<br>
+d) Ish beruvchi, yuqori turuvchi organ va tashkilotlarning buyruqlari, topshiriqlari, qarorlari, ko‘rsatmalarini bajarish (bunday buyruq, topshiriq, qaror, ko‘rsatma yaqqol qonunchilik hujjatlariga zid bo‘lgan holatlar bundan mustasno);<br>
+e) mehnat va texnologiya intizomi (Ustav, Ichki mehnat tartibi qoidalari, Odob-axloq kodeksi va boshqa lokal hujjatlar)ga rioya qilish;<br>
+f) ish beruvchining qonuniy talablarini bajarish;<br>
+g) mehnatni muhofaza qilish, xavfsizlik texnikasi va ishlab chiqarish sanitariyasi talablariga rioya qilish;<br>
+h) lavozim yo‘riqnomalariga rioya qilish;<br>
+i) XALIKK, MM bilan nazarda tutilgan malaka majburiyatlariga rioya qilish;<br>
+j) qonunchilik va boshqa normativ hujjatlarga rioya qilish;<br>
+k) jamoa shartnomasi shartlariga rioya qilish;<br>
+l) institutning korrupsiyaga qarshi kurashish siyosati va sohaga oid boshqa normativ-huquqiy hujjatlarda qoʻyilgan maqsad va vazifalarga rioya qilish;<br>
+m) oʻzi toʻgʻrisidagi shaxsiy ma’lumotlarning haqqoniyligini zimmasiga olish;<br>
+n) Ish beruvchining ruxsatisiz oshkor qilib bo‘lmaydigan (konfidensial) ma’lumotlarni o‘z ichiga oluvchi axborotlarni uchinchi shaxsga bermaslik, shuningdek, shaxsga oid ma’lumotlarni va xizmat doirasida foydalanilgan axborotlarni sir saqlanishiga rioya etish;<br>
+o) institut professor-o‘qituvchilari va boshqa toifadagi xodimlar ish vaqti davomida o‘zaro munosabatlarda umume’tirof etilgan axloq qoidalariga rioya etish va boshqa xodim va talabalarga nisbatan xushmuomalada bo‘lish.<br>
+p) xorijiy tillardan birida milliy yoki unga tenglashtirilgan mos darajadagi xalqaro sertifikatga ega bo‘lish hamda belgilangan muddatlarda yangilab borish;<br>
+q) xodim tomonidan qabul qilinadigan boshqa majburiyatlar, jumladan:<br>
+<b>I.O‘quv-uslubiy ishlar yoʻnalishida</b><br>
+-	yangi ma’ruza matnlari, mashq (masalalar) to‘plami, laboratoriya, ijodiy ishlari bo‘yicha uslubiy qo‘llanmalarni ishlab chiqish, yozish va nashr etish;<br>
+-	tarqatma o‘quv materiallari, elektron o‘quv dasturlar va video mashg‘ulotlar (fan doirasida), shuningdek tegishli kompyuter dasturlaridan foydalangan holda taqdimot slaydlari, o‘qitish dasturlarini tayyorlash (yaratish);<br>
+-	darslik, o‘quv qo‘llanmalar yozish va nashr etishga tayyorlash;<br>
+-	darslik, o‘quv qo‘llanmalarni to‘ldirilgan va o‘zgartirilgan holda qayta nashr etish;<br>
+-	uslubiy qo‘llanma (ko‘rsatma, risola)lar tayyorlash va nashr etish;<br>
+-	fanning o‘quv-uslubiy majmuasini ishlab chiqish va fanning elektron modul papkasini yaratish;<br>
+-	mavjud laboratoriya ishini yangilash;<br>
+-	yangi laboratoriya ishini tayyorlash va joriy etish, shuningdek virtual laboratoriya ishini tayyorlash va joriy etish;<br>
+-	bakalavriat ta’lim yo‘nalishi (magistratura, doktorantura mutaxassisligi) bo‘yicha malaka talabi, namunaviy o‘quv reja, yangi fan uchun namunaviy o‘quv dasturlarini ishlab chiqish;<br>
+-	ishchi o‘quv reja, fan bo‘yicha ishchi o‘quv dasturini ishlab chiqish;<br>
+-	darslik, o‘quv qo‘llanmalar va boshqa materiallarni tarjima qilish;<br>
+-	fanlar bo‘yicha nazorat savollari (test, masalalar va boshqa), oraliq va yakuniy baholashlar uchun topshiriqlarni ishlab chiqish;<br>
+<b>II. Ilmiy-tadqiqot ishlari yoʻnalishida:</b><br>
+-	ilmiy maqola, tezis tayyorlash va nashr etish, ixtiro (patent), dasturiy vositalar yaratish;<br>
+-	monografiya va risola nashr etish, axborot tahliliy materiallar tayyorlash, ijodiy ishlar yaratish;<br>
+-	shaxsiy (tematik) ijodiy asarlar katalogini nashr etish, yangi loyihalar yaratish;<br>
+-	darslik, monografiya, risola va o‘quv qo‘llanmalariga muharrirlik qilish;<br>
+-	oliy ta’lim muassasasi kengashi tomonidan tasdiqlangan mavzu bo‘yicha ilmiy-tadqiqot ishlarini bajarish;<br>
+-	darslik, o‘quv qo‘llanma, monografiya, risola, ilmiy maqola, dissertatsiya, avtoreferat va boshqa ishlarga taqriz yozish;<br>
+-	falsafa doktori (PhD), fan doktori (DsC) ilmiy darajasini olish uchun dissertatsiya tayyorlash va himoya qilish;<br>
+-	ilmiy jurnallar tahririyatiga a’zo bo‘lish;<br>
+-	talabalarning ilmiy-tadqiqot va ilmiy-ijodiy ishlariga rahbarlik qilish;<br>
+-	talabalarning fan va ilmiy to‘garaklariga rahbarlik qilish;<br>
+-	ilmiy yoki uslubiy konferensiya va seminarlar tashkil etish;<br>
+-	ilmiy yoki uslubiy kengashlarda ishtirok etish.<br>
+<b>III. «Ustoz-shogird» ishlari</b><br>
+-	talaba oliy ta’lim muassasasiga o‘qishga qabul qilinganda yangi sharoitga adaptatsiya jarayonini o‘tashga va oliy ta’lim muassasasida bo‘lgan chog‘ida vaqtini to‘g‘ri taqsimlashga yordam berish;<br>
+-	talabaning shaxsiy va akademik yutuqlarini rivojlantirish maqsadida uchrashuvlar o‘tkazish;<br>
+-	talabalar baholash tizimi qanday olib borilishini qay darajada anglaganini va qayerdan ta’lim va akademik sohada yordam olishi mumkin ekanligini nazorat qilish;<br>
+-	o‘qish jarayonida shaxsiy va akademik muammolar yuzaga kelganda va ular ta’lim olish darajasiga ta’sir ko‘rsatsa, ularni hal qilishda ko‘maklashish;<br>
+-	akademik yoki kasbiy tanlov qilishda tavsiyalar berish;<br>
+-	ma’ruza materiallarni qaytarish va misollarni taqdim etgan holda ularni yoritish;<br>
+-	talabalarning mutaxassislik va tanlov fanlaridan olgan baholari va o‘zlashtirgan bilimlari ularning kvalifikatsion darajalariga ta’sirining muhimligi haqida tushunchani shakllantirish;<br>
+-	boshqa talaba va o‘qituvchilardan ushbu talaba haqida ma’lumot olishi;<br>
+-	talabalarning ota-onalari bilan ishlash;<br>
+            </p>
+            <p><b>8. Ish beruvchining majburiyatlari:</b></p>
+            <p>a) O‘zbekiston Respublikasi Konstitutsiyasi, mehnat to‘g‘risidagi qonunchilik hamda boshqa qonunlar va qonunchilik hujjatlariga rioya qilish;<br>
+               b) ishga qabul qilish chogʻida xodimni Ustav, Ichki mehnat tartib-qoidalari, Odob-axloq kodeksi, mehnatini tashkil etish, mehnatni muhofaza qilish va texnik xavfsizlikni ta’minlash qoidalari, Lavozim yo‘riqnomasi, jamoa shartnomasi va boshqa ichki lokal hujjatlar bilan tanishtirish;<br>
+               d) mehnat va ishlab chiqarish intizomini ta’minlash;<br>
+               e) ish haqi va qonunchilik hujjatlarida nazarda tutilgan boshqa to‘lovlarni o‘z vaqtida hamda to‘liq hajmda to‘lash;<br>
+               f) xizmat vazifalarini bajarishda zarur xavfsiz va samarali mehnat sharoitlarini yaratishni ta’minlash, uni kasbiy kompetensiyalarini oshirish;<br>
+               g) ish joyini mehnatni muhofaza qilish va xavfsizlik texnikasi qoidalariga muvofiq jihozlash;<br>
+               h) qonunchilikka va boshqa normativ hujjatlarga rioya qilish;<br>
+               i) jamoa shartnomasi shartlariga rioya qilish;<br>
+               j) ish beruvchi tomonidan qabul qilinadigan boshqa majburiyatlar:<br>
+               k) Ish beruvchi qonunchilik hujjatlarida belgilangan boshqa majburiyatlarni ham bajarishi mumkin.<br>
+               9. Mehnat shartnomasini tuzish va bekor qilish, shuningdek unga o‘zgartish va qo‘shimchalar kiritish qonunchilikda belgilangan tartibda «Yagona milliy mehnat tizimi» idoralararo dasturiy-apparat kompleksida ro‘yxatdan o‘tkazilishi shart.<br>
+               10. Ish kuni rejimi
+              <b id="id_ish_id">Dushanba-shanba </b> <br>
+            </p>
+            <p class="text-center" style="font-size: x-small;">(ish vaqtining normal davomiyligi; ish vaqtining qisqartirilgan davomiyligi; to‘liqsiz ish vaqti.</p>
+            <p>
+                11.Xodim uchun <b id="id_kun_id">6</b> kunlik ish haftasi belgilanadi. Bunda ish vaqtining davomiyligi haftasiga
+                <b id="id_soat_id">40</b>
+                soatgacha etib belgilanadi.<br>
+                12. Mehnatga haq to‘lash.<br>
+                Xodimga quyidagicha haq to‘lash belgilanadi:<br>
+                a)
+                 <b id="id_razryad_id">4815000</b>
+                ming soʻm
+            </p>
+            <p class="text-center" style="font-size: x-small;">(to‘lov turi va uning aniq summadagi yoki YTS razryadi ko‘rsatilgan holdagi, yohud tushumdan olingan foizlardagi miqdori)</p>
+            <p>b) amaldagi qonunchilikka va normativ hujjatlarga muvofiq mehnat sharoitlari bilan bog‘liq bo‘lgan qo‘shimcha haq, ustama, kompensatsiyalar quyidagi miqdorlarda:</p>
+            <div class="row">
+                <p class="col-6 text-center" >___________________________________________________________ </p>
+                <p class="col-6 text-center">___________________________________________________________ </p>
+            </div>
+             <div class="row">
+                <p class="col-6 text-center" style="font-size: x-small;">(qo‘shimcha haq, ustama, kompensatsiyalar nomi)</p>
+                <p class="col-6 text-center" style="font-size: x-small;">(ularning miqdori)</p>
+            </div>
+            <div class="row">
+                <p class="col-6 text-center" >___________________________________________________________ </p>
+                <p class="col-6 text-center">___________________________________________________________ </p>
+            </div>
+            <div class="row">
+                <p class="col-6 text-center" >___________________________________________________________ </p>
+                <p class="col-6 text-center">___________________________________________________________ </p>
+            </div>
+            <p>
+                13. Xodimga:<br>
+                a) asosiy ta’til (mehnat ta’tili) 48 kalendar kun;<br>
+                b) jamoa shartnomasi boʻyicha qo‘shimcha ta’til
+                <b id="id_kalemdar1_id">9</b>
+                kalendar kun;<br>
+                d) shuningdek ushbu tashkilotda ishlagan har besh yili uchun qoʻshimcha davomiyligi
+                <b id="id_kalemdar2_id">2</b>
+                kalendar kun (nomi) bo‘lgan haq to‘lanadigan yillik ta’til belgilanadi.<br>
+                14. Mehnat shartnomasining mehnat sharoitlari va unga haq to‘lash xususiyatlari, ijtimoiy himoya, imtiyozlar, kafolatlar va hokazolar bilan bog‘liq bo‘lgan boshqa shartlari.<br>
+            </p>
+            <p class="text-center">Tomonlarning manzillari va imzolari:</p>
+            <div class="row">
+                <p class="col-6"> Xodim:</p>
+                <p class="col-6"> Ish beruvchi*:</p>
+            </div>
+            <div class="row">
+                <p class="col-6"><b id="id_xodim_iddd">Aminov Murod Xalim oʻgʻli</b></p>
+                <p class="col-6"><b id="id_rektor_idd">Daminov Mirzohid Islomovich</b></p>
+            </div>
+             <div class="row">
+                <p class="col-6"> Manzil: ________________________</p>
+                <p class="col-6"> Manzil:Buxoro shahar, Piridastgir koʻchasi 2-uy</p>
+            </div>
+             <div class="row">
+                <p class="col-6"> __________________________________</p>
+                <p class="col-6"> Tel: (65) 226-10-97</p>
+            </div>
+             <div class="row">
+                <p class="col-6"> __________________________________</p>
+                <p class="col-6"> __________________________________</p>
+            </div>
+            <div class="row">
+                <p class="col-6 text-center" style="font-size: x-small;">(sana, imzo)</p>
+                <p class="col-6 text-center" style="font-size: x-small;">(sana, muhr)</p>
+            </div>
+            <p>Mehnat shartnomasini bir nusxasini oldim</p>
+            <p>______________________________</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
