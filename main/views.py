@@ -13,10 +13,10 @@ def create_docx(request):
     if request.method == 'POST':
         soni = request.POST.get('soni', '')
         sana = request.POST.get('sana', '')
-        rektor = request.POST.get('rektor', '')
         xodim = request.POST.get('xodim', '')
         korxona = request.POST.get('korxona', '')
         lavozim = request.POST.get('lavozim', '')
+        hissa = request.POST.get('hissa', '')
         asosiy = request.POST.get('asosiy', '')
         muayan = request.POST.get('muayan', '')
         boshlash = request.POST.get('boshlash', '')
@@ -29,15 +29,15 @@ def create_docx(request):
         kalemdar1 = request.POST.get('kalemdar1', '')
         kalemdar2 = request.POST.get('kalemdar2', '')
 
-        Xodimlar.objects.create(shartnoma_soni=soni,sana=sana,ish_beruvchi=rektor,xodim=xodim,
-                                korxona=korxona,lavozim=lavozim,asosiy_ish=asosiy,muddatli_mehnat=muayan,
+        Xodimlar.objects.create(shartnoma_soni=soni,sana=sana,xodim=xodim,
+                                korxona=korxona,lavozim=lavozim,hissa=hissa,asosiy_ish=asosiy,muddatli_mehnat=muayan,
                                 ish_boshlash=boshlash,tomom_bolishi=tomom,sinov_muddati=sinov,ish_vaqti=ish,
                                 kun=kun,soat=soat,razryad=razryad,kalemdar1=kalemdar1,kalemdar2=kalemdar2,
                                 author=request.user)
 
         document = Document()
 
-        section = document.sections[0]
+        section = document.sections[-1]
         section.top_margin = Inches(1)
         section.bottom_margin = Inches(1)
         section.left_margin = Inches(1)
@@ -57,7 +57,7 @@ def create_docx(request):
         a = document.add_paragraph("1. Korxona (mulkchilikning barcha shakllaridagi tashkilot, muassasa, shu jumladan, ularning alohida tarkibiy bo‘linmalari ")
         a.add_run('Buxoro davlat pedagogika instituti rektori ').bold = True
         a.add_run(f'(direktori) ')
-        a.add_run(f'{rektor} ').bold = True
+        a.add_run(f'Daminov Mirzohid Islomovich ').bold = True
         a.add_run('nomidan, keyingi o‘rinlarda «Ish beruvchi» deb ataladi va fuqaro ')
         a.add_run(f'{xodim} ').bold = True
         a.add_run('keyingi o‘rinlarda «Xodim» deb ataladi, mazkur shartnomani quyidagilar haqida tuzdik:')
@@ -79,7 +79,9 @@ def create_docx(request):
 
         p = document.add_paragraph(f"kasbi bo‘yicha ")
         p.add_run(f'{lavozim} ').bold = True
-        p.add_run('lavozimiga ishga qabul qilinadi.')
+        p.add_run('lavozimiga ')
+        p.add_run(f'{hissa} ').bold = True
+        p.add_run('hissa ishga qabul qilinadi.')
         p = document.add_paragraph('')
         p.add_run('(ХALIKK bo‘yicha kasb, lavozimining to‘liq nomi, razryad, malaka toifasi)').font.size = Pt(10)
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -207,7 +209,7 @@ def create_docx(request):
         p = document.add_paragraph('')
         p.add_run("Xodim:                                                                             Ish beruvchi:")
         p = document.add_paragraph('')
-        p.add_run(f"{xodim}                                              {rektor}")
+        p.add_run(f"{xodim}                                              Daminov Mirzohid Islomovich")
         p = document.add_paragraph('')
         p.add_run("Manzil: __________________                                       Manzil:Buxoro shahar, Piridastgir koʻchasi 2-uy")
         p = document.add_paragraph('')
@@ -241,7 +243,6 @@ def create_docx2(request):
     if request.method == 'POST':
         soni = request.POST.get('soni', '')
         sana = request.POST.get('sana', '')
-        rektor = request.POST.get('rektor', '')
         xodim = request.POST.get('xodim', '')
         korxona = request.POST.get('korxona', '')
         lavozim = request.POST.get('lavozim', '')
@@ -257,7 +258,7 @@ def create_docx2(request):
         kalemdar1 = request.POST.get('kalemdar1', '')
         kalemdar2 = request.POST.get('kalemdar2', '')
 
-        Profesir.objects.create(shartnoma_soni=soni, sana=sana, ish_beruvchi=rektor, xodim=xodim,
+        Profesir.objects.create(shartnoma_soni=soni, sana=sana, xodim=xodim,
                                 korxona=korxona, lavozim=lavozim, asosiy_ish=asosiy, muddatli_mehnat=muayan,
                                 ish_boshlash=boshlash, tomom_bolishi=tomom, sinov_muddati=sinov, ish_vaqti=ish,
                                 kun=kun, soat=soat, razryad=razryad, kalemdar1=kalemdar1, kalemdar2=kalemdar2,
@@ -287,7 +288,7 @@ def create_docx2(request):
         a = document.add_paragraph("1. Korxona (mulkchilikning barcha shakllaridagi tashkilot, muassasa, shu jumladan, ularning alohida tarkibiy bo‘linmalari ")
         a.add_run('Buxoro davlat pedagogika instituti rektori ').bold = True
         a.add_run(f'(direktori) ')
-        a.add_run(f'{rektor} ').bold = True
+        a.add_run(f'Daminov Mirzohid Islomovich ').bold = True
         a.add_run('nomidan, keyingi o‘rinlarda «Ish beruvchi» deb ataladi va fuqaro ')
         a.add_run(f'{xodim} ').bold = True
         a.add_run('keyingi o‘rinlarda «Xodim» deb ataladi, mazkur shartnomani quyidagilar haqida tuzdik:')
@@ -487,7 +488,7 @@ def create_docx2(request):
         p = document.add_paragraph('')
         p.add_run("Xodim:                                                                             Ish beruvchi:")
         p = document.add_paragraph('')
-        p.add_run(f"{xodim}                                              {rektor}")
+        p.add_run(f"{xodim}                                              Daminov Mirzohid Islomovich ")
         p = document.add_paragraph('')
         p.add_run(
             "Manzil: __________________                                       Manzil:Buxoro shahar, Piridastgir koʻchasi 2-uy")
@@ -522,7 +523,6 @@ def create_docx3(request):
     if request.method == 'POST':
         soni = request.POST.get('soni', '')
         sana = request.POST.get('sana', '')
-        rektor = request.POST.get('rektor', '')
         xodim = request.POST.get('xodim', '')
         korxona = request.POST.get('korxona', '')
         lavozim = request.POST.get('lavozim', '')
@@ -540,7 +540,7 @@ def create_docx3(request):
         kalemdar1 = request.POST.get('kalemdar1', '')
         kalemdar2 = request.POST.get('kalemdar2', '')
 
-        Orindosh.objects.create(shartnoma_soni=soni, sana=sana, ish_beruvchi=rektor, xodim=xodim,
+        Orindosh.objects.create(shartnoma_soni=soni, sana=sana, xodim=xodim,
                                 korxona=korxona, lavozim=lavozim, hissa=hissa, orindoshlik=asosiy, muddatli_mehnat=muayan,
                                 ish_boshlash=boshlash, tomom_bolishi=tomom, sinov_muddati=sinov, ish_vaqti=ish,
                                 kun=kun, soat=soat, razryad=razryad,kalemdar=kalemdar, kalemdar1=kalemdar1, kalemdar2=kalemdar2,
@@ -571,7 +571,7 @@ def create_docx3(request):
         a = document.add_paragraph("1. Korxona (mulkchilikning barcha shakllaridagi tashkilot, muassasa, shu jumladan, ularning alohida tarkibiy bo‘linmalari ")
         a.add_run('Buxoro davlat pedagogika instituti rektori ').bold = True
         a.add_run(f'(direktori) ')
-        a.add_run(f'{rektor} ').bold = True
+        a.add_run(f'Daminov Mirzohid Islomovich ').bold = True
         a.add_run('nomidan, keyingi o‘rinlarda «Ish beruvchi» deb ataladi va fuqaro ')
         a.add_run(f'{xodim} ').bold = True
         a.add_run('keyingi o‘rinlarda «Xodim» deb ataladi, mazkur shartnomani quyidagilar haqida tuzdik:')
@@ -692,7 +692,7 @@ def create_docx3(request):
         document.add_paragraph("Xodimga quyidagicha haq to‘lash belgilanadi:")
 
         p = document.add_paragraph(f"a) ")
-        p.add_run(f'{razryad} ').bold = True
+        p.add_run(f'Daminov Mirzohid Islomovich ').bold = True
         p.alignment = WD_ALIGN_PARAGRAPH.THAI_JUSTIFY
 
         p = document.add_paragraph('')

@@ -4,10 +4,10 @@ from users.models import User
 class Xodimlar(models.Model):
     shartnoma_soni = models.CharField(max_length=100)
     sana = models.CharField(max_length=100)
-    ish_beruvchi  = models.CharField(max_length=100)
     xodim = models.CharField(max_length=100)
     korxona = models.CharField(max_length=100)
     lavozim = models.CharField(max_length=100)
+    hissa = models.CharField(max_length=100)
     asosiy_ish = models.CharField(max_length=100)
     muddatli_mehnat = models.CharField(max_length=100)
     ish_boshlash = models.CharField(max_length=100)
@@ -27,7 +27,6 @@ class Xodimlar(models.Model):
 class Profesir(models.Model):
     shartnoma_soni = models.CharField(max_length=100)
     sana = models.CharField(max_length=100)
-    ish_beruvchi = models.CharField(max_length=100)
     xodim = models.CharField(max_length=100)
     korxona = models.CharField(max_length=100)
     lavozim = models.CharField(max_length=100)
@@ -50,7 +49,6 @@ class Profesir(models.Model):
 class Orindosh(models.Model):
     shartnoma_soni = models.CharField(max_length=100)
     sana = models.CharField(max_length=100)
-    ish_beruvchi = models.CharField(max_length=100)
     xodim = models.CharField(max_length=100)
     korxona = models.CharField(max_length=100)
     lavozim = models.CharField(max_length=100)

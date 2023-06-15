@@ -20,21 +20,6 @@ sana.addEventListener('input', function() {
   }
 });
 
-const rektor = document.getElementById('id_rektor');
-const rektor_id = document.getElementById('id_rektor_id');
-const rektor_idd = document.getElementById('id_rektor_idd');
-rektor.addEventListener('input', function() {
-  rektor_id.textContent = rektor.value;
-  rektor_idd.textContent = rektor.value;
-  if(rektor){
-    rektor_id.style.backgroundColor = "#f1c40f";
-    rektor_idd.style.backgroundColor = "#f1c40f";
-
-  } else {
-    rektor_id.style.backgroundColor = "#ffffff";
-    rektor_idd.style.backgroundColor = "#ffffff";
-  }
-});
 
 const xodim = document.getElementById('id_xodim');
 const xodim_id = document.getElementById('id_xodim_id');
@@ -198,25 +183,3 @@ kalemdar2.addEventListener('input', function() {
   }
 });
 
-const hissa = document.getElementById('id_hissa');
-const hissa_id = document.getElementById('id_hissa_id');
-hissa.addEventListener('input', function() {
-  hissa_id.textContent = hissa.value;
-  if(hissa){
-    hissa_id.style.backgroundColor = "#f1c40f";
-  } else {
-    hissa_id.style.backgroundColor = "#ffffff";
-  }
-});
-
-
-const kalemdar = document.getElementById('id_kalemdar');
-const kalemdar_id = document.getElementById('id_kalemdar_id');
-kalemdar.addEventListener('input', function() {
-  kalemdar_id.textContent = kalemdar.value;
-  if(kalemdar){
-    kalemdar_id.style.backgroundColor = "#f1c40f";
-  } else {
-    kalemdar_id.style.backgroundColor = "#ffffff";
-  }
-});

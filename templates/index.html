@@ -15,10 +15,6 @@
             <input type="date" name="sana" class="textinput form-control" required="" id="id_sana">
         </div>
         <div class="mb-3">
-            <label for="id_rektor" class="form-label">Ish beruvchi :</label>
-            <input type="text" name="rektor" placeholder="F.I.O" class="textinput form-control" required="" id="id_rektor">
-        </div>
-        <div class="mb-3">
             <label for="id_xodim" class="form-label">Xodim :</label>
             <input type="text" name="xodim" placeholder="F.I.O" class="textinput form-control" required="" id="id_xodim">
         </div>
@@ -29,6 +25,10 @@
         <div class="mb-3">
             <label for="id_lavozim" class="form-label">Lavozimining to‘liq nomi :</label>
             <input type="text" name="lavozim" placeholder="boʻlim boshligʻi" class="textinput form-control" required="" id="id_lavozim">
+        </div>
+        <div class="mb-3">
+            <label for="id_hissa" class="form-label">Hissa :</label>
+            <input type="text" name="hissa" placeholder="--" class="textinput form-control" required="" id="id_hissa">
         </div>
         <div class="mb-3">
             <label for="id_asosiy" class="form-label">asosiy ish, o‘rindoshlik, mavsumiy va boshqa :</label>
@@ -93,7 +93,7 @@
             </div>
             <p>
                 1. Korxona (mulkchilikning barcha shakllaridagi tashkilot, muassasa, shu jumladan, ularning alohida tarkibiy bo‘linmalari Buxoro davlat pedagogika instituti rektori (direktori)
-                <span><b id="id_rektor_id">Daminov Mirzohid Islomovich</b></span>
+                <span><b>Daminov Mirzohid Islomovich</b></span>
                 nomidan, keyingi o‘rinlarda «Ish beruvchi» deb ataladi va fuqaro
                 <span><b id="id_xodim_id">Aminov Murod Xalim oʻgʻli</b></span>
                 keyingi o‘rinlarda «Xodim» deb ataladi, mazkur shartnomani quyidagilar haqida tuzdik:
@@ -105,7 +105,7 @@
              <p class="text-center" style="font-size: x-small;"> (familiyasi, ismi va otasining ismi) </p>
             <p class="text-center"><b id="id_korxona_id">Xodimlar boʻlimi</b></p>
             <p class="text-center" style="font-size: x-small;">(korxona tarkibiy bo‘linmasi, sex, bo‘lim, uchastka, laboratoriya va shu kabilarning nomi)</p>
-            <p> kasbi bo‘yicha <b id="id_lavozim_id">boʻlim boshligʻi</b> lavozimiga ishga qabul qilinadi. </p>
+            <p> kasbi bo‘yicha <b id="id_lavozim_id">boʻlim boshligʻi</b> lavozimiga <b id="id_hissa_id">1</b> hissa ishga qabul qilinadi. </p>
             <p class="text-center" style="font-size: x-small;"> (ХALIKK bo‘yicha kasb, lavozimining to‘liq nomi, razryad, malaka toifasi) </p>
             <p>3. Shartnoma <b id="id_asosiy_id">asosiy</b> hisoblanadi.</p>
             <p class="text-center" style="font-size: x-small;"> (asosiy ish, o‘rindoshlik, mavsumiy va boshqa) </p>
@@ -194,7 +194,7 @@
             </div>
             <div class="row">
                 <p class="col-6"><b id="id_xodim_iddd">Aminov Murod Xalim oʻgʻli</b></p>
-                <p class="col-6"><b id="id_rektor_idd">Daminov Mirzohid Islomovich</b></p>
+                <p class="col-6"><b>Daminov Mirzohid Islomovich</b></p>
             </div>
              <div class="row">
                 <p class="col-6"> Manzil: ________________________</p>
@@ -217,5 +217,16 @@
         </div>
     </div>
 </div>
-
+<script>
+const hissa = document.getElementById('id_hissa');
+const hissa_id = document.getElementById('id_hissa_id');
+hissa.addEventListener('input', function() {
+  hissa_id.textContent = hissa.value;
+  if(hissa){
+    hissa_id.style.backgroundColor = "#f1c40f";
+  } else {
+    hissa_id.style.backgroundColor = "#ffffff";
+  }
+});
+</script>
 {% endblock content %}
