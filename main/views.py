@@ -38,10 +38,10 @@ def create_docx(request):
         document = Document()
 
         section = document.sections[-1]
-        section.top_margin = Inches(1)
-        section.bottom_margin = Inches(1)
+        section.top_margin = Inches(0.75)
+        section.bottom_margin = Inches(0.75)
         section.left_margin = Inches(1)
-        section.right_margin = Inches(0.5)
+        section.right_margin = Inches(0.50)
 
         style = document.styles['Normal']
         font = style.font
@@ -268,7 +268,7 @@ def create_docx2(request):
 
         section = document.sections[0]
         section.top_margin = Inches(1)
-        section.bottom_margin = Inches(1)
+        section.bottom_margin = Inches(0.75)
         section.left_margin = Inches(1)
         section.right_margin = Inches(0.5)
 
@@ -550,7 +550,7 @@ def create_docx3(request):
 
         section = document.sections[0]
         section.top_margin = Inches(1)
-        section.bottom_margin = Inches(1)
+        section.bottom_margin = Inches(0.75)
         section.left_margin = Inches(1)
         section.right_margin = Inches(0.5)
 
@@ -737,7 +737,7 @@ def create_docx3(request):
         p = document.add_paragraph('')
         p.add_run("Xodim:                                                                             Ish beruvchi:")
         p = document.add_paragraph('')
-        p.add_run(f"{xodim}                                              {rektor}")
+        p.add_run(f"{xodim}                                              Daminov Mirzohid Islomovich")
         p = document.add_paragraph('')
         p.add_run(
             "Manzil: __________________                                       Manzil:Buxoro shahar, Piridastgir koʻchasi 2-uy")
