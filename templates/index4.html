@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="height:90%" class ="row m-3">
+    <div style="overflow-y: scroll; height:100%" class="col-4 card">
+        <form method="post" class="m-3">
+        {% csrf_token %}
+        <h5>Malumotlarni to'ldiring</h5>
+        <div class="mb-3">
+            <label for="id_son" class="form-label">Shartnoma raqami :</label>
+            <input type="text" name="son" placeholder="--" class="textinput form-control" required="" id="id_son">
+        </div>
+        <div class="mb-3">
+            <label for="id_data" class="form-label">Kelishuv sanasi :</label>
+            <input type="date" name="data" class="textinput form-control" required="" id="id_data">
+        </div>
+        <div class="mb-3">
+            <label for="id_joy" class="form-label">Kelishuv tuzilgan joy :</label>
+            <input type="text" name="joy" placeholder="Buxoro shaxat" class="textinput form-control" required="" id="id_joy">
+        </div>
+        <div class="mb-3">
+            <label for="id_ish_b" class="form-label">Ish beruvchi nomidan qatnashayotgan shaxsning lavozimi :</label>
+            <input type="text" name="ish_b" placeholder="lavozim" class="textinput form-control" required="" id="id_ish_b">
+        </div>
+        <div class="mb-3">
+            <label for="id_fio" class="form-label">Ish beruvchi nomidan qatnashayotgan shaxsning F.I.0 :</label>
+            <input type="text" name="fio" placeholder="F.I.O" class="textinput form-control" required="" id="id_fio">
+        </div>
+        <div class="mb-3">
+            <label for="id_kelish" class="form-label">Kelishuv tuzayotgan xodimning lavozimi :</label>
+            <input type="text" name="kelish" placeholder="lavozim" class="textinput form-control" required="" id="id_kelish">
+        </div>
+        <div class="mb-3">
+            <label for="id_tuz" class="form-label">Kelishuv tuzayotgan xodimning F.I.O. :</label>
+            <input type="text" name="tuz" placeholder="F.I.O" class="textinput form-control" required="" id="id_tuz">
+        </div>
+        <div class="mb-3">
+            <label for="id_sabab" class="form-label">Xodim bilan tuzilgan mehnat shartnomasiga o‘zgartirish kiritilishi sababi :</label>
+            <input type="text" name="sabab" placeholder="sababi" class="textinput form-control" required="" id="id_sabab">
+        </div>
+        <div class="mb-3">
+            <label for="id_nom" class="form-label">Xodimning yangi ish joyi nomi :</label>
+            <input type="text" name="nom" placeholder="ish joy nomi" class="textinput form-control" required="" id="id_nom">
+        </div>
+        <div class="mb-3">
+            <label for="id_taraf" class="form-label">Taraflar o‘rtasida dastlabki mehnat shartnomasi tuzilgan sana :</label>
+            <input type="text" name="taraf" placeholder="shartnomasi tuzilgan sana" class="textinput form-control" required="" id="id_taraf">
+        </div>
+        <div class="mb-3">
+            <label for="id_raqam" class="form-label">Taraflar o‘rtasida tuzilgan mehnat shartnomasining raqami  :</label>
+            <input type="text" name="raqam" placeholder="mehnat shartnomasining raqami" class="textinput form-control" required="" id="id_raqam">
+        </div>
+        <div class="mb-3">
+            <label for="id_band" class="form-label">Taraflar o‘rtasida tuzilgan mehnat shartnomasining tegishli bandi :</label>
+            <input type="text" name="band" placeholder="mehnat shartnomasining tegishli bandi" class="textinput form-control" required="" id="id_band">
+        </div>
+        <div class="mb-3">
+            <label for="id_aval" class="form-label">Xodimning avvalgi lavozimi :</label>
+            <input type="text" name="aval" placeholder="lavozimi" class="textinput form-control" required="" id="id_aval">
+        </div>
+        <div class="mb-3">
+            <label for="id_yangi" class="form-label">Xodimning yangi lavozimi :</label>
+            <input type="text" name="yangi" placeholder="lavozimi" class="textinput form-control" required="" id="id_yangi">
+        </div>
+        <div class="mb-3">
+            <label for="id_data1" class="form-label">Xodimning yangi lavozimda ish faoliyatini boshlanish sanasi :</label>
+            <input type="text" name="data1" placeholder="sana" class="textinput form-control" required="" id="id_data1">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary form-control" tabindex="4"> ok </button>
+        </div>
+
+    </form>
+    </div>
+    <div class="col-8 card" style="overflow-y: scroll; height:100%">
+        <div class="m-5" data-bs-spy="scroll" data-bs-target="#navbar-example">
+            <h5 class="text-center"><span id="id_son_id">Shartnoma raqami </span>-son</h5><br>
+            <div class="row">
+              <p class="col-6 text-center" ><b id="id_data_id">Kelishuv sanasi</b></p>
+              <p class="col-6 text-center"><b id="id_joy_id">Kelishuv tuzilgan joy</b></p>
+            </div>
+            <p>
+                <span style="width: 10px !important;color: transparent;">ggg</span> O‘zbekiston Respublikasi Mehnat Kodeksining 133-135-moddasiga asosan mazkur kelishuvni bir tomondan Buxoro davlat pedagogika instituti nomidan
+                <span id="id_ish_b_id">Ish beruvchi nomidan qatnashayotgan shaxsning lavozimi </span>
+                <span id="id_fio_id">Ish beruvchi nomidan qatnashayotgan shaxsning F.I.O.</span>
+                keyingi o‘rinlarda “Ish beruvchi” deb yuritiladi va ikkinchi tomondan Xodim Buxoro davlat pedagogika instituti
+                <span id="id_kelish_id">Kelishuv tuzayotgan xodimning lavozimi</span>
+                lavozimida ishlab kelgan
+                <span id="id_tuz_id">Kelishuv tuzayotgan xodimning F.I.O. </span>
+                keyingi o‘rinlarda “Xodim” deb yuritiladi, quyidagilar haqida tuzdilar.
+            </p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>1. <span id="id_sabab_id">Xodim bilan tuzilgan mehnat shartnomasiga o‘zgartirish kiritilishi sababi</span> e'tiborga olinsin.</p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>2. Xodim ushbu kelishuvga muvofiq <span id="id_nom_id">Xodimning yangi ish joyi nomi</span> lavozimida ishlashga rozi ekanligini bildiradi.</p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>Shu munosabat bilan, xodimning mehnat munosabatlari Buxoro davlat pedagogika institutida davom etaveradi</p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>3. Taraflar o‘rtasida tuzilgan
+                <span id="id_taraf_id">Taraflar o‘rtasida dastlabki mehnat shartnomasi tuzilgan sana kunidagi</span>
+                <span id="id_raqam_id">Taraflar o‘rtasida tuzilgan mehnat shartnomasining raqami</span>
+                -sonli mehnat shartnomasining
+                <span id="id_band_id">Taraflar o‘rtasida tuzilgan mehnat shartnomasining tegishli bandi</span>
+                -bandidagi Buxoro davlat pedagogika instituti
+                <span id="id_aval_id">Xodimning avvalgi lavozimi</span>
+                degan jumlalar Buxoro davlat pedagogika instituti
+                <span id="id_yangi_id">Xodimning yangi lavozimi</span>
+                jumlalariga o‘zgartirilsin.
+            </p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>Ushbu o‘zgarishlarga asosan,
+                <span id="id_kelish_idd">Kelishuv tuzayotgan xodimning lavozimi</span>
+                <span id="id_data1_id">Xodimning yangi lavozimda ish faoliyatini boshlanish sanasi</span>
+                kunidan Buxoro davlat pedagogika instituti
+                <span id="id_yangi_idd">Xodimning yangi lavozimi</span>
+                lavozimida o‘z mehnat faoliyatini davom ettiradi.
+            </p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span> 4. Xodimga tashkilotning shtatlar jadvaliga muvofiq oylik ish haqi to‘lanadi.</p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>5. Shartnomaning qolgan bandlari o‘zgartirishsiz qoldirilsin.</p>
+            <p><span style="width: 10px !important;color: transparent;">ggg</span>6. Mazkur kelishuv taraflar tomonidan imzolangan kundan boshlab, kuchga kiradi.</p>
+
+            <p class="text-center"> <b>7. Taraflarning manzillari va imzolari:</b> </p>
+            <div class="row">
+              <p class="col-6 text-center"><b>Xodim:</b></p>
+              <p class="col-6 text-center"><b>Ish beruvchi:</b></p>
+            </div>
+            <div class="row">
+              <p class="col-6 text-center" id="id_tuz_idd">Kelishuv tuzayotgan xodimning F.I.O.</p>
+              <p class="col-6 text-center">Buxoro davlat pedagogika instituti</b></p>
+            </div>
+            <div class="row">
+              <p class="col-6 text-center">Manzili Xodimning yashash manzili </p>
+              <p class="col-6 text-center">Manzili: Buxoro shahar, piridastgir ko‘chasi 2 uy</b></p>
+            </div>
+            <div class="row">
+              <p class="col-6 text-center"></p>
+              <p class="col-6 text-center" id="id_ish_b_idd">Ish beruvchi nomidan qatnashayotgan shaxsning lavozimi</p>
+            </div>
+            <div class="row">
+              <p class="col-6 text-center"></p>
+              <p class="col-6 text-center" id="id_fio_idd">Ish beruvchi shaxs F.I.O.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

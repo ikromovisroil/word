@@ -766,3 +766,111 @@ def create_docx3(request):
         return response
 
     return render(request, 'index3.html')
+
+
+@login_required
+def create_docx4(request):
+    if request.method == 'POST':
+        son = request.POST.get('son', '')
+        data = request.POST.get('data', '')
+        joy = request.POST.get('joy', '')
+        ish_b = request.POST.get('ish_b', '')
+        fio = request.POST.get('fio', '')
+        kelish = request.POST.get('kelish', '')
+        tuz = request.POST.get('tuz', '')
+        sabab = request.POST.get('sabab', '')
+        nom = request.POST.get('nom', '')
+        taraf = request.POST.get('taraf', '')
+        raqam = request.POST.get('raqam', '')
+        band = request.POST.get('band', '')
+        aval = request.POST.get('aval', '')
+        yangi = request.POST.get('yangi', '')
+        data1 = request.POST.get('data1', '')
+
+
+        document = Document()
+
+        section = document.sections[0]
+        section.top_margin = Inches(1)
+        section.bottom_margin = Inches(0.75)
+        section.left_margin = Inches(1)
+        section.right_margin = Inches(0.5)
+
+        style = document.styles['Normal']
+        font = style.font
+        font.name = "Times New Roman"
+        font.size = Pt(12)
+
+        document.add_paragraph(f'{son}- SON').alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+        document.add_paragraph('')
+        p = document.add_paragraph(f'               ')
+        p.add_run(f'{data}').bold = True
+        p.add_run(f'                                                                                             ')
+        p.add_run(f'''{joy}''').bold = True
+
+        p = document.add_paragraph("          O‘zbekiston Respublikasi Mehnat Kodeksining 133-135-moddasiga asosan mazkur kelishuvni bir tomondan Buxoro davlat pedagogika instituti nomidan ")
+        p.add_run(f'''{ish_b} ''')
+        p.add_run(f'''{fio}. ''')
+        p.add_run("keyingi o‘rinlarda “Ish beruvchi” deb yuritiladi va ikkinchi tomondan Xodim Buxoro davlat pedagogika instituti ")
+        p.add_run(f'''{kelish} ''')
+        p.add_run("lavozimida ishlab kelgan ")
+        p.add_run(f'''{tuz} ''')
+        p.add_run("keyingi o‘rinlarda “Xodim” deb yuritiladi, quyidagilar haqida tuzdilar.")
+
+        p = document.add_paragraph("          1. ")
+        p.add_run(f'''{sabab} ''')
+        p.add_run("e'tiborga olinsin.")
+
+        p = document.add_paragraph("          2. Xodim ushbu kelishuvga muvofiq ")
+        p.add_run(f'''{nom} ''')
+        p.add_run("lavozimida ishlashga rozi ekanligini bildiradi.")
+
+        document.add_paragraph("          Shu munosabat bilan, xodimning mehnat munosabatlari Buxoro davlat pedagogika institutida davom etaveradi.")
+
+        p = document.add_paragraph("          3. Taraflar o‘rtasida tuzilgan ")
+        p.add_run(f'''{taraf} ''')
+        p.add_run(f'''{raqam} ''')
+        p.add_run("-sonli mehnat shartnomasining ")
+        p.add_run(f'''{band} ''')
+        p.add_run("-bandidagi Buxoro davlat pedagogika instituti ")
+        p.add_run(f'''{aval} ''')
+        p.add_run("degan jumlalar Buxoro davlat pedagogika instituti ")
+        p.add_run(f'''{yangi} ''')
+        p.add_run("jumlalariga o‘zgartirilsin.")
+
+        p = document.add_paragraph("          Ushbu o‘zgarishlarga asosan, ")
+        p.add_run(f'''{tuz} ''')
+        p.add_run(f'''{data1} ''')
+        p.add_run("kunidan Buxoro davlat pedagogika instituti ")
+        p.add_run(f'''{yangi} ''')
+        p.add_run("lavozimida o‘z mehnat faoliyatini davom ettiradi.")
+
+        document.add_paragraph("          4. Xodimga tashkilotning shtatlar jadvaliga muvofiq oylik ish haqi to‘lanadi.")
+        document.add_paragraph("          5. Shartnomaning qolgan bandlari o‘zgartirishsiz qoldirilsin.")
+        document.add_paragraph("          6. Mazkur kelishuv taraflar tomonidan imzolangan kundan boshlab, kuchga kiradi.")
+
+        p = document.add_paragraph("7. Taraflarning manzillari va imzolari:").alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.bold = True
+
+        p = document.add_paragraph("Ходим:                                                                      Иш берувчи::").alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.bold = True
+
+        document.add_paragraph(f'''          {tuz}                   Buxoro davlat pedagogika instituti''')
+        document.add_paragraph(f'''          Manzili Xodimning yashash manzili                  Manzili: Buxoro shahar, piridastgir ko‘chasi 2 uy''')
+
+        document.add_paragraph(f'''	                                                                          {ish_b}''')
+        document.add_paragraph(f'''                                                                                       {fio}''')
+
+
+        document.add_heading()
+        docx_file = BytesIO()
+        document.save(docx_file)
+        docx_file.seek(0)
+
+        response = HttpResponse(docx_file.read())
+        response['Content-Disposition'] = 'attachment; filename={}.docx'.format(son.replace(" ", "_"))
+        response['Content-Type'] = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        return response
+
+    return render(request, 'index4.html')

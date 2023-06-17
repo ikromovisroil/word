@@ -67,3 +67,7 @@ class Orindosh(models.Model):
     kalemdar2 = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
+
+
+
