@@ -787,6 +787,9 @@ def create_docx4(request):
         yangi = request.POST.get('yangi', '')
         data1 = request.POST.get('data1', '')
 
+        Kelishuv.objects.create(son=son,data=data,joy=joy,ish_b=ish_b,fio=fio,kelish=kelish,
+                                tuz=tuz,sabab=sabab,nom=nom,taraf=taraf,raqam=raqam,band=band,
+                                aval=aval,yangi=yangi,data1=data1,author=request.user)
 
         document = Document()
 

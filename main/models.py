@@ -68,6 +68,22 @@ class Orindosh(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-
+class Kelishuv(models.Model):
+    son = models.CharField(max_length=100)
+    data = models.CharField(max_length=100)
+    joy = models.CharField(max_length=100)
+    ish_b = models.CharField(max_length=100)
+    fio = models.CharField(max_length=100)
+    kelish = models.CharField(max_length=100)
+    tuz = models.CharField(max_length=100)
+    sabab = models.CharField(max_length=100)
+    nom = models.CharField(max_length=100)
+    taraf = models.CharField(max_length=100)
+    raqam = models.CharField(max_length=100)
+    band = models.CharField(max_length=100)
+    aval = models.CharField(max_length=100)
+    yangi = models.CharField(max_length=100)
+    data1 = models.CharField(max_length=100)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
